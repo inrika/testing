@@ -1,0 +1,22 @@
+<%= form_for([:admin,online_test]) do |f| %>
+  <% if online_test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(online_test.errors.count, "error") %> prohibited this online_test from being saved:</h2>
+
+      <ul>
+      <% online_test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

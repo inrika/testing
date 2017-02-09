@@ -1,0 +1,17 @@
+
+<%= form_for([:admin, @online_test, @question, @answer]) do |f| %>
+    <p>
+      <%= f.label :text %><br>
+      <%= f.text_field :text %>
+    </p>
+    <p>
+      <%= f.label :is_correct %>
+      <%= f.check_box :is_correct %>
+    </p>
+
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+

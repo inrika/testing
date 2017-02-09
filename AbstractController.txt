@@ -1,0 +1,29 @@
+AbstractController::DoubleRenderError in UserRepliesController#create
+Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".
+Extracted source (around line #24):
+22
+23
+24
+25
+26
+27
+                    end
+       queue.slice!(0)
+       redirect_to online_test_question_path(id: question.id, online_test_id: online_test.id, queue: queue)
+
+    else
+      redirect_to online_test_question_path(id: question.id, online_test_id: online_test.id, queue: queue), notice: 'âû íå âûáðàëè íè îäèí îòâåò'
+Rails.root: c:/Sites/testing
+Application Trace | Framework Trace | Full Trace
+app/controllers/user_replies_controller.rb:24:in `create'
+Request
+Parameters:
+{"utf8"=>"?",
+ "authenticity_token"=>"z8sQ71CKcBWfCECoVbrEdFwz1w5h3IO2dApPWfSjauoj+UHlKS7ZuBoPtcuMlu4mYmFrO9Ie1UqJnWuJ8R+NYg==",
+ "answer_ids"=>["5"],
+ "commit"=>"Äàëåå",
+ "online_test_id"=>"1",
+ "question_id"=>"5",
+ "queue"=>["5"]}
+Toggle session dump
+

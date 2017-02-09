@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Online Tests</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @online_tests.each do |online_test| %>
+      <tr>
+        <td><%= online_test.title %></td>
+        <td><%= link_to 'Show', [:admin,online_test] %></td>
+        <td><%= link_to 'Edit', edit_admin_online_test_path(online_test) %></td>
+        <td><%= link_to 'Destroy', [:admin,online_test], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Online Test', new_admin_online_test_path, class: "btn btn-default" %>

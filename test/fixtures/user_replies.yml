@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  online_test: one
+  question: one
+  answer: one
+  cart: one
+
+two:
+  online_test: two
+  question: two
+  answer: two
+  cart: two

@@ -1,0 +1,1 @@
+json.array! @online_tests, partial: 'online_tests/online_test', as: :online_test

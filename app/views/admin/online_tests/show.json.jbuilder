@@ -1,0 +1,1 @@
+json.partial! "online_tests/online_test", online_test: @online_test

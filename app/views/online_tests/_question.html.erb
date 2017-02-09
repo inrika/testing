@@ -1,0 +1,17 @@
+<h1><%=@online_test.title%></h1>
+<div class="question">
+
+
+  <%=form_for  [@online_test, @question] do |f|%>
+      <%=@question.title %>
+      <%= f.fields_for :answers do |ff| %>
+          <div>
+            <%= ff.label :text %>
+            <%= ff.text_field :text %>
+          </div>
+      <% end %>
+
+      <%=f.submit %>
+  <%end%>
+
+</div>
