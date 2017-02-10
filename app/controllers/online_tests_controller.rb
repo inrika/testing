@@ -8,15 +8,9 @@ class OnlineTestsController < ApplicationController
     @online_test = OnlineTest.find(params[:id])
     @questions = @online_test.questions
     #начинаем проходить новый тест, в корзине не должно быть информации по старым тестам
-    # (это если пользователь не закончив тест, решил пройти другой)
-    if @cart.online_test
-      @cart.clear_cart
-      @cart.online_test = @online_test
-      @cart.save
-    else
-      @cart.online_test = @online_test
-      @cart.save
-    end
+    @cart.clear_cart if @cart.online_test # (это если пользователь не закончив тест, решил пройти другой)
+    @cart.online_test = @online_test
+    @cart.save
 
     #создаю очередь из вопросов в случайном порядке
     @queue = @questions.shuffle.to_a

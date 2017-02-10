@@ -12,13 +12,12 @@ class UserRepliesController < ApplicationController
       queue.slice!(0)
       redirect_to online_test_question_path(id: question.id, online_test_id: online_test.id, queue: queue), notice: "Вы уже  отвечали на вопрос #{question.title}, ответы останутся прежними"
     else
-
-
       if params[:answer_ids]
-
         params[:answer_ids].each do |answ|
           answer = Answer.find(answ)
-          @user_reply = @cart.add_reply(answer.question.online_test.id, answer.question.id, answer.id)
+          @user_reply = @cart.add_reply(answer.id)
+
+#          @user_reply = @cart.add_reply(answer.question.online_test.id, answer.question.id, #answer.id)
           if @user_reply
             @user_reply.save
           else

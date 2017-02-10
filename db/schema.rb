@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216071942) do
+ActiveRecord::Schema.define(version: 20170210090002) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "text"
@@ -43,16 +43,12 @@ ActiveRecord::Schema.define(version: 20161216071942) do
   end
 
   create_table "user_replies", force: :cascade do |t|
-    t.integer  "online_test_id"
-    t.integer  "question_id"
     t.integer  "answer_id"
     t.integer  "cart_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["answer_id"], name: "index_user_replies_on_answer_id"
     t.index ["cart_id"], name: "index_user_replies_on_cart_id"
-    t.index ["online_test_id"], name: "index_user_replies_on_online_test_id"
-    t.index ["question_id"], name: "index_user_replies_on_question_id"
   end
 
 end
