@@ -20,8 +20,8 @@
   <% @question.answers.each do |answer| %>
       <tr>
         <td><%= answer.text %></td>
-        <td><%= answer.is_correct %></td>
 
+        <td><%= check_box_tag '', '', answer.is_correct , disabled: true%></td>
         <td><%= link_to 'Show', [:admin,@online_test, answer.question, answer ] %></td>
         <td><%= link_to 'Edit', edit_admin_online_test_question_answer_path(@online_test,@question, answer) %></td>
         <td><%= link_to 'Destroy', [:admin, @online_test,  answer.question, answer],
