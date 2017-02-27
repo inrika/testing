@@ -16,8 +16,6 @@ class UserRepliesController < ApplicationController
         params[:answer_ids].each do |answ|
           answer = Answer.find(answ)
           @user_reply = @cart.add_reply(answer.id)
-
-#          @user_reply = @cart.add_reply(answer.question.online_test.id, answer.question.id, #answer.id)
           if @user_reply
             @user_reply.save
           else

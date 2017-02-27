@@ -8,10 +8,11 @@ class Admin::QuestionsController < ApplicationController
     @question = @online_test.questions.create(question_params)
     redirect_to [:admin,@online_test]
   end
+
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to [:admin,@online_test], notice: 'Online test was successfully destroyed.' }
+      format.html { redirect_to [:admin,@online_test], notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

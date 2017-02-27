@@ -10,7 +10,8 @@
   <thead>
   <tr>
     <th>Текст ответа</th>
-    <th colspan="3">Правильность</th>
+    <th >Правильность</th>
+    <th colspan="3"></th>
   </tr>
   </thead>
 
@@ -31,23 +32,21 @@
   </tbody>
 </table>
 
-
-<h2>Добавить ответы:</h2>
-<%= form_for([:admin, @online_test, @question, @question.answers.build]) do |f| %>
-    <p>
-      <%= f.label :text %><br>
-      <%= f.text_field :text %>
-    </p>
-    <p>
-      <%= f.label :is_correct %>
-      <%= f.check_box :is_correct %>
-    </p>
-
-
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
+<div class="panel panel-default">
+	  <div class="panel-heading">Добавить ответы:</div>
+	  <div class="panel-body">
+      <%= form_for([:admin, @online_test, @question, @question.answers.build], html:{class:"form-inline"}) do |f| %>
+          <div class="form-group">
+            <%= f.label :text, "Текст" , class:"sr-only" %>
+            <%= f.text_field :text, class:"form-control", placeholder:"Текст ответа" %>
+          </div>
+         <div class="checkbox">
+            <label><%= f.check_box :is_correct %>Правильный </label>
+          </div>
+          <%= f.submit "Добавить",  class:"btn " %>
+      <% end %>
+	  </div>
+</div>
 
 
 

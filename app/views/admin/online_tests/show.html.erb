@@ -1,21 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h2>
+  <strong>Тест:</strong>
   <%= @online_test.title %>
-</p>
+</h2>
 
 
-<h2>Вопросы</h2>
+<h3>Вопросы</h3>
 
 <table class="table table-striped table-bordered table-hover">
   <thead>
   <tr>
-    <th>Title</th>
+    <th>Текст</th>
     <th colspan="3"></th>
   </tr>
   </thead>
-
   <tbody>
   <% @online_test.questions.each do |question| %>
       <tr>
@@ -31,17 +30,18 @@
 </table>
 
 
-<h2>Добавить вопросы:</h2>
-<%= form_for([:admin, @online_test, @online_test.questions.build]) do |f| %>
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
+<div class="panel panel-default">
+	  <div class="panel-heading">Добавить вопросы:</div>
+	  <div class="panel-body">
+      <%= form_for([:admin, @online_test, @online_test.questions.build], html:{class:"form-inline"}) do |f| %>
+          <div class="form-group">
+            <%= f.label :title, "Текст" , class:"sr-only" %>
+            <%= f.text_field :title, class:"form-control", placeholder:"Текст вопроса" %>
+          </div>
+          <%= f.submit "Добавить",  class:"btn " %>
+      <% end %>
+	  </div>
+</div>
 
 
 <%= link_to 'Edit', edit_admin_online_test_path(@online_test) %> |
